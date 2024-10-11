@@ -5,6 +5,7 @@ import 'primeicons/primeicons.css';
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
+import { setupStore } from '@/store';
 
 import PrimeVue from 'primevue/config';
 import Aura from '@primevue/themes/aura';
@@ -17,6 +18,7 @@ import Row from 'primevue/row';                 // optional
 
 const app = createApp(App);
 
+setupStore(app);
 const MyPreset = definePreset(Aura, {
 
     semantic: {

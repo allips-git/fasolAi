@@ -10,13 +10,13 @@
         <div class="bg-white dark:bg-gray-800 max-w-[1920px] self-center w-full *:gap-3 p-4 mt-6 rounded-xl pt-0">
             <div class="my-4 flex justify-between items-center w-full">
                 <div class="flex flex-col gap-2">
-                    <SelectButton v-model="value" :options="options" aria-labelledby="basic" />
+                    <SelectButton v-model="learning['search']['leGb']" :options="options" aria-labelledby="basic" optionLabel="name" optionValue="value"/>
                 </div>
                 <div class="w-96">
                     <AddSelect/>
                 </div>
             </div>
-            <DataTable :value="products" paginator :rows="5" tableStyle="min-width: 50rem">
+            <DataTable :value="learning['list']" tableStyle="min-width: 50rem">
             <Column class="min-w-min whitespace-nowrap" field="em" header="강종"></Column>
                 <Column class="min-w-min whitespace-nowrap" field="testType" header="테스트유형"></Column>
                 <Column class="min-w-min whitespace-nowrap" field="h2s" header="H₂S (%)"></Column>
@@ -28,14 +28,16 @@
                 <Column class="min-w-min whitespace-nowrap" field="g" header="증류수 (g)"></Column>
                 <Column class="min-w-min whitespace-nowrap" field="time" header="Test (시간)"></Column>
                 <Column field="result" header="결과" class="min-w-min whitespace-nowrap"></Column>
-                <Column field="" header="">
+                <Column field="delete" header="삭제">
                     <template #body="{ data }">
-                    <div class="flex items-center min-w-min ">
-                        <Button class="flex-none" label="삭제" ></Button>
-                    </div>
-                </template>
-                
+                        <div class="flex items-center min-w-min ">
+                            <Button class="flex-none" label="삭제" @click="getDelete(data.leCd)"></Button>
+                        </div>
+                    </template>
                 </Column>
+            <template #empty> 
+                <p class="w-full text-center py-20">데이터가 없습니다.</p>
+            </template>
             </DataTable>
         </div>
         
@@ -43,52 +45,49 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { RouterLink } from 'vue-router';
-import Select from 'primevue/select';
 import Button from 'primevue/button';
-import Dialog from 'primevue/dialog';
-import InputText from 'primevue/inputtext';
 import SelectButton from 'primevue/selectbutton';
 import AddSelect from '@/components/AddSelect.vue';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import { RouterLink } from 'vue-router';
+import { ref, onMounted } from 'vue';
+import { useLearningStore } from '@/store/modules/learning';
+import axios from 'axios';
 
-const products = ref<Product[]>([]);
-// 테스트 유형
-const value = ref('HIC 테스트');
-const options = ref(['HIC 테스트', 'SSCC 테스트']);
+const options  = ref([{ name : 'HIC 테스트', value : 'H'}, { name : 'SSCC 테스트', value : 'S' }]);
+const learning = useLearningStore();
 
-const ProductService = {
-    getProductsData(): Product[] {
-        return [
-            {
-                em: '11',
-                testType: 'HIC',
-                h2s: '11',
-                co2: '11',
-                ph: '11',
-                ch3h: '11',
-                ch3na: '11',
-                nacl: '11',
-                g: '11',
-                time: '1',
-                result: '성공',
-            },          
-        ];
-    },
-    getProductsMini(): Promise<Product[]> {
-        return Promise.resolve(this.getProductsData().slice(0, 50));
-    },
-};
+const getList = async () => {
+    await learning.getList();
+}
+
+const getDelete = async (leCd: string) => {
+    const confirm = window.confirm('삭제하시겠습니까?');
+
+    if(confirm)
+    {
+        const params = {
+            leCd : leCd
+        };
+
+        try
+        {
+            await axios.delete('https://fasolai.allips.kr/learning/deleteData', params);
+            await getList();
+            alert('삭제되었습니다.');
+        }
+        catch(e)
+        {
+            console.log(e);
+            alert('학습 데이터 삭제에 실패하였습니다. 지속될 경우 관리자에게 문의하세요.');
+        }
+    }
+}
 
 onMounted(() => {
-    
-    ProductService.getProductsMini().then((data) => {
-        products.value = data;
-  
-    })
-});
+    getList();
+})
 
 </script>
 
