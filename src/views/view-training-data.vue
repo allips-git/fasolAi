@@ -17,7 +17,7 @@
                 </div>
             </div>
             <DataTable :value="learning['list']" tableStyle="min-width: 50rem">
-            <Column class="min-w-min whitespace-nowrap" field="stNm" header="강종"></Column>
+                <Column class="min-w-min whitespace-nowrap" field="stNm" header="강종"></Column>
                 <Column class="min-w-min whitespace-nowrap" field="leGb" header="테스트유형"></Column>
                 <Column class="min-w-min whitespace-nowrap" field="h2s" header="H₂S (%)"></Column>
                 <Column class="min-w-min whitespace-nowrap" field="co2" header="CO₂ (%)"></Column>
@@ -35,12 +35,12 @@
                         </div>
                     </template>
                 </Column>
-            <template #empty> 
-                <p class="w-full text-center py-20">데이터가 없습니다.</p>
-            </template>
+                <template #empty> 
+                    <p class="w-full text-center py-20">데이터가 없습니다.</p>
+                </template>
             </DataTable>
+            <div ref="scrollContainer"></div>
         </div>
-        
     </main>
 </template>
 
@@ -53,13 +53,22 @@ import Column from 'primevue/column';
 import { RouterLink } from 'vue-router';
 import { ref, onMounted } from 'vue';
 import { useLearningStore } from '@/store/modules/learning';
+import { useInfiniteScroll } from '@vueuse/core';
 import axios from 'axios';
 
-const options  = ref([{ name : 'HIC 테스트', value : 'H'}, { name : 'SSCC 테스트', value : 'S' }]);
-const learning = useLearningStore();
+const options           = ref([{ name : 'HIC 테스트', value : 'H'}, { name : 'SSCC 테스트', value : 'S' }]);
+const learning          = useLearningStore();
+const isLoading         = ref(false);
+const scrollContainer   = ref(null);
 
 const getList = async () => {
-    await learning.getList();
+    isLoading.value = true;
+    const result = await learning.getList();
+
+    if(result === 'more')
+    {
+        isLoading.value = false;
+    }
 }
 
 const getDelete = async (leCd: string) => {
@@ -74,6 +83,7 @@ const getDelete = async (leCd: string) => {
         try
         {
             await axios.delete('https://fasolai.allips.kr/learning/deleteData', params);
+            await learning.getReset();
             await getList();
             alert('삭제되었습니다.');
         }
@@ -85,9 +95,18 @@ const getDelete = async (leCd: string) => {
     }
 }
 
-onMounted(() => {
-    getList();
-})
+onMounted(async () => {
+    await learning.getReset();
+    await getList();
+});
+
+useInfiniteScroll(scrollContainer, async () => {
+    if (!isLoading.value) 
+    {
+        await learning.getAddNum();
+        await getList();
+    }
+});
 
 </script>
 

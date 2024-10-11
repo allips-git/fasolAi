@@ -105,16 +105,24 @@ export const useLearningStore = defineStore('learning', {
                 })
 
                 this.list = list;
+
+                return res.data.length === 0 ? 'stop' : 'more';
             }
             catch(e)
             {
                 console.log(e);
                 alert('학습 리스트 불러오는 중 오류가 발생하였습니다. 지속될 경우 관리자에게 문의하세요.');
+                return false;
             }
+        },
+        getAddNum()
+        {
+            this.start = this.start + 30;
         },
         getReset()
         {
-            this.info = getInfo();
+            this.start = 0;
+            this.info  = getInfo();
         }
     }
 });
