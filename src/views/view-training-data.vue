@@ -17,15 +17,15 @@
                 </div>
             </div>
             <DataTable :value="learning['list']" tableStyle="min-width: 50rem">
-            <Column class="min-w-min whitespace-nowrap" field="em" header="강종"></Column>
-                <Column class="min-w-min whitespace-nowrap" field="testType" header="테스트유형"></Column>
+            <Column class="min-w-min whitespace-nowrap" field="stNm" header="강종"></Column>
+                <Column class="min-w-min whitespace-nowrap" field="leGb" header="테스트유형"></Column>
                 <Column class="min-w-min whitespace-nowrap" field="h2s" header="H₂S (%)"></Column>
                 <Column class="min-w-min whitespace-nowrap" field="co2" header="CO₂ (%)"></Column>
                 <Column class="min-w-min whitespace-nowrap" field="ph" header="pH"></Column>
-                <Column class="min-w-min whitespace-nowrap" field="ch3h" header="CH₃COOH (%)"></Column>
-                <Column class="min-w-min whitespace-nowrap" field="ch3na" header="CH₃COONa (%)"></Column>
+                <Column class="min-w-min whitespace-nowrap" field="cooh" header="CH₃COOH (%)"></Column>
+                <Column class="min-w-min whitespace-nowrap" field="coona" header="CH₃COONa (%)"></Column>
                 <Column class="min-w-min whitespace-nowrap" field="nacl" header="NaCl (g)"></Column>
-                <Column class="min-w-min whitespace-nowrap" field="g" header="증류수 (g)"></Column>
+                <Column class="min-w-min whitespace-nowrap" field="water" header="증류수 (g)"></Column>
                 <Column class="min-w-min whitespace-nowrap" field="time" header="Test (시간)"></Column>
                 <Column field="result" header="결과" class="min-w-min whitespace-nowrap"></Column>
                 <Column field="delete" header="삭제">

@@ -100,7 +100,7 @@ export const useLearningStore = defineStore('learning', {
                         naci   : item.naci,
                         water  : item.water,
                         time   : item.time,
-                        result : item.result === 'Y' ? '통과' : '실패',
+                        result : item.result === 'Y' ? '통과' : '실패'
                     })
                 })
 
