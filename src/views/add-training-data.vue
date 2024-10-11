@@ -1,5 +1,5 @@
 <template>
-    <main class="p-8 bg-gray-50 dark:bg-gray-900 max-w-[1000px] mx-auto">
+    <main class="p-8 bg-gray-50 dark:bg-gray-900 max-w-[1080px] mx-auto">
         <div class="flex flex-col justify-center">
             <router-link to="/">
                 <Button class="flex-auto" icon="pi pi-angle-left" size="small" iconPos="left" label="홈으로 돌아가기" />
@@ -7,29 +7,29 @@
             <h1 class="mx-auto my-0 block text-3xl font-bold mb-2 mt-12">
                 <span class="text-blue-500">학습 데이터 추가</span>
             </h1>         
-            <div class="bg-white dark:bg-gray-800 max-w-[1000px] self-center w-full p-8 mt-6 rounded-xl">
+            <div class="bg-white dark:bg-gray-800 max-w-[1080px] self-center w-full p-8 mt-6 rounded-xl">
                 <AddSelect />
                 <div class="flex flex-col gap-10 mt-10">
-                    <div class="flex flex-col gap-2">
+                    <!-- <div class="flex flex-col gap-2">
                         <h1 class="text-xl font-bold text-blue-500">테스트 유형</h1>
                         <SelectButton v-model="learning['info']['leGb']" :options="options" aria-labelledby="basic" optionLabel="name" optionValue="value"/>
-                    </div>
-                    <div class="flex flex-col gap-2">
+                    </div> -->
+                    <div class="flex flex-col gap-3">
                         <h1 class="text-xl font-bold text-blue-500">테스트 데이터</h1>
-                        <ul class="grid grid-cols-4 gap-2">
+                        <ul class="grid grid-cols-2 gap-4">
                             <li>
                                 <label>H₂S (%)</label>
                                 <InputNumber v-model="learning['info']['h2s']" class="w-full" />
                             </li>
-                            <li>
+                            <!-- <li>
                                 <label>CO₂ (%)</label>
                                 <InputNumber v-model="learning['info']['co2']" class="w-full" />
-                            </li>
+                            </li> -->
                             <li>
                                 <label>pH</label>
                                 <InputNumber v-model="learning['info']['ph']" class="w-full" />
                             </li>
-                            <li>
+                            <!-- <li>
                                 <label>CH₃COOH (%)</label>
                                 <InputNumber v-model="learning['info']['cooh']" class="w-full" />
                             </li>
@@ -48,13 +48,76 @@
                             <li>
                                 <label>Test (시간)</label>
                                 <InputNumber v-model="learning['info']['time']" class="w-full" />
+                            </li> -->
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-col gap-3">
+                        <h1 class="text-xl font-bold text-blue-500">조성값</h1>
+                        <ul class="grid grid-cols-7 gap-4">
+                            <li class="*:py-1">
+                                <label>C</label>
+                                <InputNumber v-model="em" class="*:w-full" />
+                            </li>
+                            <li class="*:py-1">
+                                <label>Si</label>
+                                <InputNumber v-model="em" class="*:w-full" />
+                            </li>
+                            <li class="*:py-1">
+                                <label>Mn</label>
+                                <InputNumber v-model="em" class="*:w-full" />
+                            </li>
+                            <li class="*:py-1">
+                                <label>P</label>
+                                <InputNumber v-model="em" class="*:w-full" />
+                            </li>
+                            <li class="*:py-1">
+                                <label>S</label>
+                                <InputNumber v-model="em" class="*:w-full" />
+                            </li>
+                            <li class="*:py-1">
+                                <label>AI</label>
+                                <InputNumber v-model="em" class="*:w-full" />
+                            </li>
+                            <li class="*:py-1">
+                                <label>Nb</label>
+                                <InputNumber v-model="em" class="*:w-full" />
+                            </li>
+                            <li class="*:py-1">
+                                <label>Ti</label>
+                                <InputNumber v-model="em" class="*:w-full" />
+                            </li>
+                            <li class="*:py-1">
+                                <label>V</label>
+                                <InputNumber v-model="em" class="*:w-full" />
+                            </li>
+                            <li class="*:py-1">
+                                <label>Cr</label>
+                                <InputNumber v-model="em" class="*:w-full" />
+                            </li>
+                            <li class="*:py-1">
+                                <label>Mo</label>
+                                <InputNumber v-model="em" class="*:w-full" />
+                            </li>
+                            <li class="*:py-1">
+                                <label>Ca</label>
+                                <InputNumber v-model="em" class="*:w-full" />
+                            </li>
+                            <li class="*:py-1">
+                                <label>B</label>
+                                <InputNumber v-model="em" class="*:w-full" />
+                            </li>
+                            <li class="*:py-1">
+                                <label>N</label>
+                                <InputNumber v-model="em" class="*:w-full" />
                             </li>
                         </ul>
                     </div>
+ 
                     <div class="flex flex-col gap-2">
-                        <h1 class="text-xl font-bold text-blue-500">테스트 결과</h1>
-                        <Select v-model="learning['info']['result']" placeholder="선택하세요" :options="result" optionLabel="name" optionValue="value"/>
-                        <Button class="w-full mt-8" :disabled="status" label="예측하기" size="large" @click="getResult"></Button>
+                        <!-- <h1 class="text-xl font-bold text-blue-500">테스트 결과</h1>
+                        <Select v-model="learning['info']['result']" placeholder="선택하세요" :options="result" optionLabel="name" optionValue="value"/> -->
+                        <Button class="w-full mt-8" :disabled="status" label="저장하기" size="large" @click="getResult"></Button>
                     </div>
                 </div>
             </div> 

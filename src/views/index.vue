@@ -15,14 +15,14 @@
                     </router-link>
                 </li>
 
-                <li class="bg-white dark:bg-gray-800 shadow-md">
+                <!-- <li class="bg-white dark:bg-gray-800 shadow-md">
                     <router-link class="p-8 w-full h-full justify-center items-center flex flex-col" to="/sscc-test">
                         <div class="rounded-full bg-blue-50 dark:bg-slate-900 h-20 w-20 flex justify-center items-center">
                             <span class="pi pi-sitemap text-blue-500 h-10 w-10 font-bold" style="font-size: 2.5rem"></span>
                         </div>
                         <p class="mt-3 text-lg font-semibold">SSCC 테스트 예측</p>
                     </router-link>
-                </li>
+                </li> -->
 
                 <li class="bg-white dark:bg-gray-800 shadow-md">
                     <router-link class="p-8 w-full h-full justify-center items-center flex flex-col" to="/add-training-data">
@@ -33,14 +33,14 @@
                     </router-link>
                 </li> 
 
-                <li class="bg-white dark:bg-gray-800 shadow-md">
+                <!-- <li class="bg-white dark:bg-gray-800 shadow-md">
                     <router-link class="p-8 w-full h-full justify-center items-center flex flex-col" to="/view-training-data">
                         <div class="rounded-full bg-blue-50 dark:bg-slate-900 h-20 w-20 flex justify-center items-center">
                             <span class="pi pi-search text-blue-500 h-10 w-10 !font-bold " style="font-size: 2.5rem"></span>
                         </div>
                         <p class="mt-3 text-lg font-semibold">학습 데이터 조회</p>
                     </router-link>
-                </li>
+                </li> -->
             </ul>
         </div>
     </main>

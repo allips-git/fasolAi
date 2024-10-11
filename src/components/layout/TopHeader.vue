@@ -10,15 +10,15 @@
                 <li>
                     <router-link class="hover:text-blue-500" to="/hic-test">HIC Test</router-link>
                 </li>
-                <li>
+                <!-- <li>
                     <router-link class="hover:text-blue-500" to="/sscc-test">SSCC Test</router-link>
-                </li>
+                </li> -->
                 <li>
                     <router-link class="hover:text-blue-500" to="/add-training-data">Add Data</router-link>
                 </li>
-                <li>
+                <!-- <li>
                     <router-link class="hover:text-blue-500" to="/view-training-data">View Data</router-link>
-                </li>
+                </li> -->
             </ul>
             <Button 
                 :icon="isDarkMode ? 'pi pi-moon' : 'pi pi-sun'" 
