@@ -1,0 +1,9 @@
+@import url(https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css);
+@import url(https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap);
+/* 슈트 폰트 적용 */
+body {
+  min-height: 100vh;
+  font-size: 16px;
+  /* font-family:'SUIT', sans-serif; */
+}
+

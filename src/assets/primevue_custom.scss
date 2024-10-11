@@ -1,0 +1,196 @@
+.p-datatable-column-title{
+    font-size: 0.875rem;
+    span{
+        display: flex;
+        align-items: center;
+        align-self: center;
+    }
+}
+// 필터 옆 아이콘
+.p-button.p-component.p-button-icon-only.p-button-secondary.p-button-rounded.p-button-text.p-datatable-column-filter-button{
+    display: none;
+}
+.p-button.p-component.p-button-icon-only.p-button-secondary.p-button-rounded.p-button-text.p-datatable-column-filter-clear-button{
+    display: none;
+}
+
+.p-datatable-header{
+    border: none;
+}
+.custom-tab{
+    height: calc(100vh - 51px);
+    .p-tabpanels{
+        padding: 0 ;
+    }
+    .p-datepicker{
+        
+        .p-datepicker-input-icon-container{
+            height: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.custom-popup-table{
+    height: 90%;
+}
+
+.custom-datatable{
+    .p-datatable-header{
+        padding: 12px 0px;
+        border: none;
+    }
+    .p-iconfield{
+            max-width: 300px;
+            width: 100%;
+        input{
+            // font-size: 0.875rem;
+            width: 100%;
+            padding: 8px 12px 8px 36px ;
+        }
+        
+    }
+    // 테이블 데이트 피크
+    .p-datepicker{
+        .p-datepicker-input{
+            font-size: 0.875rem;
+            padding-top: 0.325rem;
+            padding-bottom:  0.325rem;
+        }
+        .p-datepicker-input-icon-container{
+            height: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    // 데이터 테이블 위
+    .p-datatable-table-container{
+        border-color: var(--p-datatable-header-cell-border-color);
+        border-right: 1px solid var(--p-datatable-header-cell-border-color);
+        border-left: 1px solid var(--p-datatable-header-cell-border-color);
+        border-top: 1px solid var(--p-datatable-header-cell-border-color);
+        border-bottom: 1px solid var(--p-datatable-header-cell-border-color);
+        border-radius: 0.5rem;
+        box-sizing: border-box;
+
+    }
+    // 검색해더 필터 버튼
+    .p-button.p-component.p-button-icon-only.p-button-secondary.p-button-rounded.p-button-text.p-datatable-column-filter-button{
+        display: none;
+    }
+    .p-button.p-component.p-button-icon-only.p-button-secondary.p-button-rounded.p-button-text.p-datatable-column-filter-clear-button{
+        display: none;
+    }
+
+    .p-datatable-sort-icon{
+        width: 0.75rem;
+        height: 0.75rem;
+        vertical-align: baseline;
+    }
+    
+    // 데이터 테이블 검색해더 공통
+    .p-datatable-header-cell{
+        padding: 0.5rem;
+        .p-inputtext{
+            // font-size: 0.75rem;
+            // padding: 3px 0.5rem;
+            width: 100%;
+            }    
+        .p-select{
+            font-size: 0.875rem;
+            
+        }
+        .p-select-label{
+            padding-left: 0.625rem;
+            padding-right: 0.625rem;
+            padding-top: 0.468rem;
+            padding-bottom: 0.468rem;
+        }
+       }
+       
+    .p-datatable-thead{
+        > tr{
+            &:first-child {
+                border-radius: 0.5rem;
+                border: none;
+            }
+        }
+    }
+
+    .p-datatable-tbody{
+        // font-size: 0.875rem;
+        overflow-y: auto;
+        // max-height: calc(100vh - 178px);
+        max-height: 1vh;
+        > tr{
+            cursor: pointer;
+            &:last-child > td{
+                border: none;
+            }
+        }
+    }
+}
+.p-datatable-tbody > tr{
+    vertical-align: middle;
+}
+.p-datatable-tbody > tr > td{
+    vertical-align: middle;
+}
+
+    .p-dialog-content{
+        height: 90%;
+    }
+
+
+// 모달
+.p-drawer-right .p-drawer.p-component{
+    width: 40rem;
+}
+.p-dialog-right{
+    .p-dialog-content{
+        padding: 0;
+    }
+    .p-dialog-header{
+        padding: 8px 20px;
+        .p-dialog-title{
+            font-size: 12px;
+        }
+    }
+    .p-dialog.p-component{
+        margin: 0;
+        min-height: 100vh;
+        border-radius:  4px 0px 0px 4px;
+    }
+    :root{
+        background-color:var(--p-slate-50);
+        
+    
+    }
+}
+
+.p-tablist-content{
+    padding-top: 8px;
+
+    .p-tablist-tab-list{
+        padding-right: 20px;
+        padding-left: 20px;
+        .p-tab{
+            padding-top: 2px;
+            padding-bottom: 16px;
+            padding-left: 2px;
+            padding-right: 2px;
+            border-bottom-width: 2px;
+            &.p-tab-active{
+                font-weight: 700;
+            }
+        } 
+    }   
+}
+
+:root {
+    --popover-content-padding: 0.5rme;
+    // --popover-bg-color: var(--primary-color);
+}

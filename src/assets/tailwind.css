@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 색 트렌지션 전역설정 */
+* {
+    @apply transition-colors duration-[20ms]; 
+  }
+
+
+  .input-left-icon {
+    @apply absolute left-4 top-1/2 -translate-y-1/2 ; 
+  }
+
+  .input-right-icon {
+    @apply absolute right-4 top-1/2 -translate-y-1/2 ; 
+  }
+  .input-box-form{
+    @apply border border-gray-200 p-4 flex flex-col gap-5 rounded-md bg-white dark:bg-zinc-900 dark:border-zinc-800
+  }
+  .input-label-form-box{
+    @apply flex flex-col gap-2
+  }
+  
+
+  .modal-bottom-sticky-box{
+    @apply flex w-full gap-2 justify-end px-4 py-3 sticky bottom-0 bg-white dark:bg-zinc-900
+  }
+  .edit_button-tab_box{
+    @apply sticky top-0 bg-white dark:bg-zinc-900
+  }
+  .set-form-box{
+    @apply flex flex-col gap-5 bg-gray-50 px-4 py-4 dark:bg-zinc-800 
+  }
+  html {
+    font-size: 16px;
+    color:var(--p-gray-900);
+    
+  }
+  body{
+    background-color: var(--p-gray-50);
+  }
+  .dark body {
+    background-color: var(--p-gray-900);
+  }
+  html.dark{
+    color: var(--p-gray-50);
+  }
+  .dark .text-blue-500{
+    color: var(--p-blue-400);
+  }
+:root{
+  --p-button-text-help-color:var(--p-primary-600)
+}
